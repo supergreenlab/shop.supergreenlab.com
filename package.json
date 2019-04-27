@@ -5,6 +5,7 @@
 		"@babel/preset-env": "^7.4.3",
 		"@babel/runtime": "^7.4.3",
 		"gulp": "^4.0.1",
-		"gulp-babel": "^8.0.0"
+		"gulp-babel": "^8.0.0",
+		"gulp-terser": "^1.1.7"
 	}
 }

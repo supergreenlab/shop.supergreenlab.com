@@ -1,6 +1,7 @@
 const { src, dest, parallel, series, watch, lastRun } = require("gulp");
 const babel = require("gulp-babel");
 const spawn = require("child_process").spawn;
+const terser = require("gulp-terser");
 
 function static_scripts() {
   return src(["src/**/*.js"])
@@ -9,6 +10,7 @@ function static_scripts() {
         presets: ["@babel/preset-env"]
       })
     )
+    .pipe(terser())
     .pipe(dest("assets"));
 }
 
@@ -28,7 +30,6 @@ exports.deploy = theme_deploy;
 
 exports.watch = series(
   exports.build,
-  exports.deploy,
   parallel(() => {
     watch("src/**/*.js", static_scripts);
   }, theme_watch)
