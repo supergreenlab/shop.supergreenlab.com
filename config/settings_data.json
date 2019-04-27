@@ -1,0 +1,588 @@
+{
+  "current": {
+    "color_text": "#3d4246",
+    "color_body_text": "#69727b",
+    "color_sale_text": "#3ab20b",
+    "color_button": "#3ab20b",
+    "color_button_text": "#fff",
+    "color_small_button_text_border": "#3d4246",
+    "color_text_field_text": "#000000",
+    "color_text_field_border": "#949494",
+    "color_text_field": "#fff",
+    "color_image_overlay_text": "#fff",
+    "color_image_overlay": "#3d4246",
+    "image_overlay_opacity": 40,
+    "color_borders": "#e8e9eb",
+    "color_body_bg": "#fff",
+    "type_header_font": "work_sans_n6",
+    "type_header_base_size": 26,
+    "type_base_font": "work_sans_n4",
+    "type_base_size": 16,
+    "type_bold_product_titles": false,
+    "share_image": "shopify:\/\/shop_images\/Black-large-noborder.png",
+    "share_facebook": true,
+    "share_twitter": true,
+    "share_pinterest": true,
+    "social_twitter_link": "https:\/\/twitter.com\/SuperGreenLab",
+    "social_facebook_link": "https:\/\/www.facebook.com\/supergreenlab",
+    "social_pinterest_link": "",
+    "social_instagram_link": "https:\/\/www.instagram.com\/sgreenlab\/",
+    "social_tumblr_link": "https:\/\/supergreenlab.tumblr.com\/",
+    "social_snapchat_link": "",
+    "social_youtube_link": "https:\/\/www.youtube.com\/c\/supergreenlab",
+    "social_vimeo_link": "",
+    "favicon": "shopify:\/\/shop_images\/Black-large-noborder.png",
+    "checkout_header_image": "",
+    "checkout_logo_image": "shopify:\/\/shop_images\/Black-large-noborder.png",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#ffffff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_accent_color": "#3ab20b",
+    "checkout_button_color": "#3ab20b",
+    "checkout_error_color": "#e32c2b",
+    "mlvedaACS_roundDecimal": false,
+    "mlvedaACS_positionTop": false,
+    "mlvedaACS_positionRight": false,
+    "mlvedaACS_positionLeft": false,
+    "mlvedaACS_defaultCurrency": "EUR",
+    "mlvedaACS_positionBottom": false,
+    "mlvedaACS_position": "inline",
+    "mlvedaACS_enable": false,
+    "mlvedaACS_supportedCurrencies": "USD EUR",
+    "mlvedaACS_hideDecimal": false,
+    "mlvedaACS_currencyFormat": "money_format",
+    "mlvedaACS_displayFlag": false,
+    "sections": {
+      "product-template": {
+        "type": "product-template",
+        "settings": {
+          "image_size": "medium",
+          "show_quantity_selector": true,
+          "show_variant_labels": true,
+          "show_vendor": false,
+          "enable_zoom": true,
+          "enable_payment_button": false,
+          "show_share_buttons": true
+        }
+      },
+      "list-collections-template": {
+        "type": "list-collections-template",
+        "settings": {
+          "display_type": "all",
+          "sort": "alphabetical",
+          "grid": 3
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "link_list": {
+            "type": "link_list",
+            "settings": {
+              "title": "Follow us",
+              "menu": "footer"
+            }
+          },
+          "text": {
+            "type": "text",
+            "settings": {
+              "title": "Contact & Support",
+              "text": "<p>towelie@supergreenlab.com<\/p>\n<p>r\/supergreenlab<\/p>"
+            }
+          },
+          "newsletter": {
+            "type": "newsletter",
+            "settings": {
+              "title": "Newsletter"
+            }
+          }
+        },
+        "block_order": [
+          "link_list",
+          "text",
+          "newsletter"
+        ],
+        "settings": {
+          "show_payment_icons": true,
+          "color_footer_bg": "#f5f5f5",
+          "color_footer_text": "#3d4246"
+        }
+      },
+      "blog-template": {
+        "type": "blog-template",
+        "settings": {
+          "layout": "list",
+          "blog_show_author": true,
+          "blog_show_date": true
+        }
+      },
+      "1555759334789": {
+        "type": "featured-product",
+        "disabled": true,
+        "settings": {
+          "featured_product": "sgb-192-301b",
+          "image_size": "medium",
+          "show_quantity_selector": false,
+          "show_variant_labels": false,
+          "show_vendor": false,
+          "enable_zoom": true,
+          "enable_payment_button": false,
+          "show_share_buttons": false
+        }
+      },
+      "1555745326385": {
+        "type": "collection",
+        "settings": {
+          "title": "Accessories",
+          "collection": "accessories",
+          "grid": 5,
+          "rows": 2,
+          "show_vendor": false,
+          "show_view_all": false
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+          "align_logo": "left",
+          "logo": "shopify:\/\/shop_images\/57584297_2358458241053784_1508427337950035968_n.png",
+          "logo_max_width": 250,
+          "main_linklist": "main-menu",
+          "message": true,
+          "home_page_only": true,
+          "message_text": "Welcome to SuperGreenLab's GrowShop",
+          "message_link": "",
+          "color_bg": "#3ab20b",
+          "color_text": "#fff"
+        }
+      },
+      "cart-template": {
+        "type": "cart-template",
+        "settings": {
+          "cart_notes_enable": false
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "layout": "grid",
+          "grid": 4,
+          "rows": 2,
+          "show_collection_image": false,
+          "show_vendor": false,
+          "sort_enable": false,
+          "tags_enable": false
+        }
+      },
+      "1555745280368": {
+        "type": "collection",
+        "settings": {
+          "title": "Main Box Systems",
+          "collection": "main-lights",
+          "grid": 2,
+          "rows": 2,
+          "show_vendor": false,
+          "show_view_all": false
+        }
+      },
+      "1555767062437": {
+        "type": "rich-text",
+        "disabled": true,
+        "settings": {
+          "full_width": false,
+          "section_title": "ALL IN ONE SYSTEMS",
+          "text": "",
+          "text_size": "small"
+        }
+      },
+      "1555772987292": {
+        "type": "feature-row",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/249_b85af289-ae1d-4b5d-9845-54494d0ae2e8.jpg",
+          "layout": "left",
+          "title": "Early Bird last units ! Shipping Now !",
+          "text": "<p>This is the limited Early Bird Edition of SuperGreenLab Grower Kit. Software features are the same and are compatible with the new revisions.&nbsp;This complete kit cannot be upgraded with SGB 301B Led Boards though.<\/p>\n<p><strong>Free Shipping on the last units !!<\/strong><\/p>\n<p><\/p>",
+          "button_label": "Order Now",
+          "button_link": "shopify:\/\/products\/grower-kit"
+        }
+      },
+      "1555782631447": {
+        "type": "collection",
+        "settings": {
+          "title": "Veg Box Lights",
+          "collection": "veg-lights",
+          "grid": 2,
+          "rows": 2,
+          "show_vendor": false,
+          "show_view_all": false
+        }
+      },
+      "1555782667567": {
+        "type": "feature-row",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/app.jpg",
+          "layout": "left",
+          "title": "SuperGreen Controller & App",
+          "text": "<p>The SuperGreenController &amp; the App lets you set light cycles and control your box from your smartphone or computer. The App data graphs lets you keep track of the environement inside your Box.<\/p>",
+          "button_label": "Build your Automated Grow box",
+          "button_link": "shopify:\/\/collections\/controller"
+        }
+      }
+    },
+    "content_for_index": [
+      "1555772987292",
+      "1555745280368",
+      "1555782631447",
+      "1555782667567",
+      "1555745326385",
+      "1555767062437",
+      "1555759334789"
+    ]
+  },
+  "presets": {
+    "Light": {
+      "checkout_body_font": "Source Sans Pro",
+      "social_youtube_link": "",
+      "type_header_base_size": 26,
+      "share_twitter": true,
+      "checkout_sidebar_background_color": "#e8f3f6",
+      "color_small_button_text_border": "#162950",
+      "checkout_input_background_color_mode": "white",
+      "social_pinterest_link": "",
+      "color_button": "#DA2F0C",
+      "color_body_text": "#6d6d6d",
+      "checkout_header_image": "",
+      "color_text": "#162950",
+      "social_instagram_link": "",
+      "checkout_error_color": "#ff6d6d",
+      "social_tumblr_link": "",
+      "checkout_body_background_color": "#ffffff",
+      "color_text_field_text": "#162950",
+      "checkout_sidebar_background_image": "",
+      "image_overlay_opacity": 40,
+      "checkout_heading_font": "Roboto",
+      "share_facebook": true,
+      "favicon": "",
+      "type_bold_product_titles": true,
+      "social_facebook_link": "",
+      "social_vimeo_link": "",
+      "checkout_accent_color": "#1990c6",
+      "color_sale_text": "#DA2F0C",
+      "color_button_text": "#ffffff",
+      "share_pinterest": true,
+      "checkout_body_background_image": "",
+      "type_base_font": "muli_n4",
+      "sections": {
+        "footer": {
+          "settings": {},
+          "blocks": {
+            "newsletter": {
+              "settings": {},
+              "type": "newsletter"
+            },
+            "link_list": {
+              "settings": {},
+              "type": "link_list"
+            },
+            "text": {
+              "settings": {},
+              "type": "text"
+            }
+          },
+          "type": "footer",
+          "block_order": [
+            "link_list",
+            "text",
+            "newsletter"
+          ]
+        },
+        "hero": {
+          "settings": {
+            "hero_size": "x-large",
+            "text_size": "large",
+            "alignment": "center"
+          },
+          "type": "hero"
+        },
+        "featured-collections": {
+          "settings": {
+            "show_vendor": true,
+            "grid": 3,
+            "rows": 1,
+            "show_view_all": true
+          },
+          "type": "collection"
+        },
+        "1492033809691": {
+          "settings": {},
+          "type": "map"
+        },
+        "collection-template": {
+          "settings": {
+            "layout": "grid",
+            "tags_enable": true,
+            "show_vendor": false,
+            "grid": 2,
+            "show_collection_image": true,
+            "rows": 2,
+            "sort_enable": true
+          },
+          "type": "collection-template"
+        },
+        "1492033924902": {
+          "settings": {
+            "title": ""
+          },
+          "blocks": {
+            "1492033924902-0": {
+              "settings": {
+                "align_text": "center",
+                "width": "100%",
+                "alignment": "center"
+              },
+              "type": "text"
+            }
+          },
+          "type": "custom-content",
+          "block_order": [
+            "1492033924902-0"
+          ]
+        },
+        "article-template": {
+          "settings": {
+            "show_share_buttons": true,
+            "blog_show_date": true,
+            "blog_show_author": true
+          },
+          "type": "article-template"
+        },
+        "product-template": {
+          "settings": {
+            "show_vendor": false,
+            "show_share_buttons": true,
+            "image_size": "medium",
+            "show_variant_labels": true,
+            "enable_zoom": true,
+            "show_quantity_selector": false
+          },
+          "type": "product-template"
+        },
+        "blog-template": {
+          "settings": {
+            "layout": "grid",
+            "blog_show_date": false,
+            "blog_show_author": true
+          },
+          "type": "blog-template"
+        },
+        "header": {
+          "settings": {
+            "color_bg": "#162950",
+            "align_logo": "left",
+            "logo_max_width": 135,
+            "color_text": "#ffffff",
+            "logo": "",
+            "message": true,
+            "main_linklist": "main-menu"
+          },
+          "type": "header"
+        },
+        "slideshow": {
+          "settings": {
+            "text_size": "medium",
+            "autorotate": false,
+            "autorotate_speed": 5,
+            "slideshow_height": "medium"
+          },
+          "blocks": {
+            "1492095993817": {
+              "settings": {
+                "image": "",
+                "alignment": "center"
+              },
+              "type": "image"
+            },
+            "slideshow-0": {
+              "settings": {
+                "image": "",
+                "alignment": "center center"
+              },
+              "type": "image"
+            }
+          },
+          "type": "slideshow",
+          "block_order": [
+            "slideshow-0",
+            "1492095993817"
+          ]
+        },
+        "1492096252560": {
+          "settings": {
+            "grid": 3
+          },
+          "blocks": {
+            "1492096252560-1": {
+              "settings": {},
+              "type": "featured_collection"
+            },
+            "1492096252560-0": {
+              "settings": {},
+              "type": "featured_collection"
+            },
+            "1492096252560-2": {
+              "settings": {},
+              "type": "featured_collection"
+            }
+          },
+          "type": "collection-list",
+          "block_order": [
+            "1492096252560-0",
+            "1492096252560-1",
+            "1492096252560-2"
+          ]
+        },
+        "cart-template": {
+          "settings": {
+            "cart_notes_enable": false
+          },
+          "type": "cart-template"
+        },
+        "1492033877875": {
+          "settings": {},
+          "blocks": {
+            "1492033877875-0": {
+              "settings": {},
+              "type": "quote"
+            }
+          },
+          "type": "quotes",
+          "block_order": [
+            "1492033877875-0"
+          ]
+        }
+      },
+      "social_snapchat_link": "",
+      "color_body_bg": "#f8f8f8",
+      "content_for_index": [
+        "hero",
+        "featured-collections",
+        "slideshow",
+        "1492033924902",
+        "1492096252560",
+        "1492033877875",
+        "1492033809691"
+      ],
+      "type_base_size": 18,
+      "color_image_overlay_text": "#ffffff",
+      "color_image_overlay": "#3d3d3d",
+      "color_text_field_border": "#909090",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "small",
+      "color_borders": "#e4e4e4",
+      "color_text_field": "#ffffff",
+      "checkout_button_color": "#23314e",
+      "type_header_font": "muli_n6",
+      "social_twitter_link": "",
+      "checkout_logo_image": ""
+    },
+    "Default": {
+      "share_facebook": true,
+      "type_header_base_size": 26,
+      "share_twitter": true,
+      "type_bold_product_titles": false,
+      "color_small_button_text_border": "#3d4246",
+      "color_sale_text": "#557B97",
+      "color_button_text": "#fff",
+      "share_pinterest": true,
+      "type_base_font": "work_sans_n4",
+      "sections": {
+        "feature-row": {
+          "settings": {},
+          "type": "feature-row"
+        },
+        "footer": {
+          "settings": {},
+          "blocks": {
+            "newsletter": {
+              "settings": {},
+              "type": "newsletter"
+            },
+            "link_list": {
+              "settings": {},
+              "type": "link_list"
+            },
+            "text": {
+              "settings": {},
+              "type": "text"
+            }
+          },
+          "type": "footer",
+          "block_order": [
+            "link_list",
+            "text",
+            "newsletter"
+          ]
+        },
+        "header": {
+          "settings": {},
+          "type": "header"
+        },
+        "hero": {
+          "settings": {
+            "text_size": "large"
+          },
+          "type": "hero"
+        },
+        "slideshow": {
+          "settings": {},
+          "blocks": {
+            "slideshow-1": {
+              "settings": {},
+              "type": "image"
+            },
+            "slideshow-0": {
+              "settings": {},
+              "type": "image"
+            }
+          },
+          "type": "slideshow",
+          "block_order": [
+            "slideshow-0",
+            "slideshow-1"
+          ]
+        },
+        "featured-collections": {
+          "settings": {
+            "collection": "frontpage"
+          },
+          "type": "collection"
+        }
+      },
+      "color_button": "#557B97",
+      "color_body_bg": "#fff",
+      "content_for_index": [
+        "hero",
+        "featured-collections",
+        "feature-row",
+        "slideshow"
+      ],
+      "color_body_text": "#69727b",
+      "type_base_size": 16,
+      "color_text": "#3d4246",
+      "color_image_overlay_text": "#fff",
+      "color_image_overlay": "#3d4246",
+      "color_text_field_text": "#000",
+      "color_text_field_border": "#949494",
+      "color_borders": "#e8e9eb",
+      "color_text_field": "#fff",
+      "image_overlay_opacity": 40,
+      "type_header_font": "work_sans_n6"
+    }
+  }
+}

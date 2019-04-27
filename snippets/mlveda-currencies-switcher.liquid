@@ -1,0 +1,500 @@
+
+{% if settings.mlvedaACS_enable %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+   <script>
+      $acs = $.noConflict(true);
+     mlflag1 = false;
+     mlflag2 = false;
+   </script>
+
+<style>
+select#currencies {
+background-repeat: no-repeat;
+      background-position: right center;
+     background-image: url("{{ 'mlblack.svg' | asset_url }}");     
+    
+}
+.nice-select .list {
+max-height: 250px;
+overflow-y: auto !important;
+}
+
+select#currencies,select#currencies1,select#currencies2 {
+   margin-bottom: 0;
+   margin-top: 0;
+   vertical-align: middle;
+   padding-top:0px;
+padding-bottom:0px;
+   padding-right: 15px;
+   border: 0;
+-webkit-appearance:none;
+   -moz-appearance:none;
+   appearance:none;
+ background-color:transparent;
+ background-position:right center;
+}
+select#currencies option{
+color:#000;
+   background-color:#fff;
+}
+select#currencies:focus,select#currencies:hover{
+outline:none;border: 0;
+}
+
+{% if settings.mlvedaACS_position == "inline" %}
+.pick_currency {
+    display: inline-block;
+  margin-right:15px;
+}
+
+
+.pick_currency label{display:none !important;}
+
+@media only screen and (max-width:768px) {
+}
+@media only screen and (max-width: 380px) {
+  .pick_currency {
+    display: inline-block;
+    margin-right: 1px;
+}
+}
+ 
+.pick_currency .nice-select {
+    border: 0 !important;
+}
+
+{% else %}
+  select#currencies, select#currencies1 , select#currencies2{
+height: auto !important;
+    line-height: 1 !important;
+    min-height: unset !important;
+    max-height: unset !important;
+    min-width: unset !important;
+    max-width: unset !important;
+    width: auto !important;
+    color:#000;
+}
+.pick_currency{
+    border: 1px solid #ddd;
+    width: auto;
+    display: inline-block;
+    padding: 5px;
+    position: fixed;
+    z-index: 9999999;
+    background: #fff;
+}
+
+{% endif %}
+
+{% if settings.mlvedaACS_position == "bottom_with_left" %}
+.nice-select.open .list {
+top: unset !important;
+bottom: 30px;
+max-height: 170px;
+overflow-y: auto;
+}
+
+{% if settings.mlvedaACS_displayFlag == false %}
+.pick_currency {
+	border: 1px solid #ddd !important;
+   padding-right: 7px !important;
+}
+{% endif %}
+
+
+.pick_currency {
+position: fixed !important;
+   background-color: #fff !important;
+   z-index: 9999 !important;
+   height: 30px !important;
+   line-height:26px !important;
+}
+
+.pick_currency {
+   top: unset !important;
+   right: unset !important;
+  bottom: {{ settings.mlvedaACS_positionBottom }} !important;
+  left: {{ settings.mlvedaACS_positionLeft}} !important;
+ 
+}
+{% endif %}
+
+{% if settings.mlvedaACS_position == "bottom_with_right" %}
+.nice-select.open .list {
+top: unset !important;
+bottom: 30px;
+max-height: 170px;
+overflow-y: auto;
+}
+{% if settings.mlvedaACS_displayFlag == false %}
+.pick_currency {
+	border: 1px solid #ddd !important;
+   padding-right: 7px !important;
+}
+{% endif %}
+
+
+.pick_currency {
+position: fixed !important;
+   background-color: #fff !important;
+   z-index: 9999 !important;
+   height: 30px !important;
+   line-height:26px !important;
+}
+
+.pick_currency {
+   top: unset !important;
+  right: {{settings.mlvedaACS_positionRight}} !important;
+  bottom: {{settings.mlvedaACS_positionBottom}} !important;
+   left: unset !important;
+ 
+}
+{% endif %}
+
+{% if settings.mlvedaACS_position == "top_with_right" %}
+.nice-select.open .list {
+max-height: 170px;
+overflow-y: auto;
+}
+{% if settings.mlvedaACS_displayFlag == false %}
+.pick_currency {
+	border: 1px solid #ddd !important;
+   padding-right: 7px !important;
+}
+{% endif %}
+
+
+.pick_currency {
+position: fixed !important;
+   background-color: #fff !important;
+   z-index: 9999 !important;
+   height: 30px !important;
+   line-height:26px !important;
+}
+.pick_currency {
+  top: {{settings.mlvedaACS_positionTop}} !important;
+  right: {{settings.mlvedaACS_positionRight}} !important;
+   bottom: unset !important;
+   left: unset !important;
+ 
+}
+{% endif %}
+
+{% if settings.mlvedaACS_position == "top_with_left" %}
+.nice-select.open .list {
+max-height: 170px;
+overflow-y: auto;
+}
+{% if settings.mlvedaACS_displayFlag == false %}
+.pick_currency {
+	border: 1px solid #ddd !important;
+   padding-right: 7px !important;
+}
+{% endif %}
+
+
+.pick_currency {
+position: fixed !important;
+   background-color: #fff !important;
+   z-index: 9999 !important;
+   height: 30px !important;
+   line-height:26px !important;
+}
+
+.pick_currency {
+  top: {{settings.mlvedaACS_positionTop}} !important;
+   right: unset !important;
+   bottom: unset !important;
+  left: {{settings.mlvedaACS_positionLeft}} !important;
+ 
+}
+{% endif %}
+
+
+
+</style>
+
+<script>
+  /*
+if(typeof(Currency) == 'undefined' || !Currency.hasOwnProperty("rates")){
+    var script = document.createElement('script');
+    script.type = "text/javascript";
+	script.async = true;
+    script.src = "//cdn.shopify.com/s/javascripts/currencies.js";
+    document.getElementsByTagName('head')[0].appendChild(script);
+  
+}
+  
+  var some_interval = setInterval(function(){
+			//console.log("hellooooooo");
+            		if(typeof(Currency) != 'undefined' || Currency.hasOwnProperty("rates")){
+			  			clearInterval(some_interval);
+                          var ACSCurrency = Currency;
+			}
+		},100);
+ */
+</script>
+
+{% if settings.mlvedaACS_position == "inline" %}
+<script>
+  var mlvedasw = '<div class = "pick_currency "  style="display: none !important; ">'+
+  '<select id="currencies" name="currencies" style="display: inline;">'+
+  {% capture codes %}USD,EUR,GBP,CAD,ARS,AUD,BBD,BDT,BSD,BHD,BRL,BOB,BND,BGN,MMK,KYD,CLP,CNY,COP,CRC,HRK,CZK,DKK,DOP,XCD,EGP,XPF,FJD,GHS,GTQ,GYD,GEL,HKD,HUF,ISK,INR,IDR,ILS,NIS,JMD,JPY,JOD,KZT,KES,KWD,LVL,LTL,MXN,MYR,MUR,MDL,MAD,MNT,MZN,ANG,NZD,NGN,NOK,OMR,PKR,PYG,PEN,PHP,PLN,QAR,RON,RUB,SAR,RSD,SCR,SGD,SYP,ZAR,KRW,LKR,SEK,CHF,TWD,THB,TZS,TTD,TRY,UAH,AED,UYU,VEB,VND,ZMK{% endcapture %}
+  {% assign supported_codes = settings.mlvedaACS_supportedCurrencies | split: ' ' %}
+'<option value="{{ shop.currency }}" selected="selected">{{ shop.currency }}</option>'+
+  {% for code in supported_codes %}
+    {% if code != shop.currency and codes contains code %}
+    '<option value="{{ code }}">{{ code }}</option>'+
+    {% endif %}
+  {% endfor %}
+'</select>'+
+'</div>';
+var mlvedaswmobile = '<a class = "pick_currency "  style="display: none !important; ">'+
+  '<select id="currencies1" name="currencies" style="display: inline;">'+
+  {% capture codes %}USD,EUR,GBP,CAD,ARS,AUD,BBD,BDT,BSD,BHD,BRL,BOB,BND,BGN,MMK,KYD,CLP,CNY,COP,CRC,HRK,CZK,DKK,DOP,XCD,EGP,XPF,FJD,GHS,GTQ,GYD,GEL,HKD,HUF,ISK,INR,IDR,ILS,NIS,JMD,JPY,JOD,KZT,KES,KWD,LVL,LTL,MXN,MYR,MUR,MDL,MAD,MNT,MZN,ANG,NZD,NGN,NOK,OMR,PKR,PYG,PEN,PHP,PLN,QAR,RON,RUB,SAR,RSD,SCR,SGD,SYP,ZAR,KRW,LKR,SEK,CHF,TWD,THB,TZS,TTD,TRY,UAH,AED,UYU,VEB,VND,ZMK{% endcapture %}
+  {% assign supported_codes = settings.mlvedaACS_supportedCurrencies | split: ' ' %}
+'<option value="{{ shop.currency }}" selected="selected">{{ shop.currency }}</option>'+
+  {% for code in supported_codes %}
+    {% if code != shop.currency and codes contains code %}
+    '<option value="{{ code }}">{{ code }}</option>'+
+    {% endif %}
+  {% endfor %}
+'</select>'+
+'</a>';
+var mlvedaswmobile1 = '<a class = "pick_currency mobile-nav__link"  style="display: none !important; ">'+
+  '<select id="currencies2" name="currencies" style="display: inline;">'+
+  {% capture codes %}USD,EUR,GBP,CAD,ARS,AUD,BBD,BDT,BSD,BHD,BRL,BOB,BND,BGN,MMK,KYD,CLP,CNY,COP,CRC,HRK,CZK,DKK,DOP,XCD,EGP,XPF,FJD,GHS,GTQ,GYD,GEL,HKD,HUF,ISK,INR,IDR,ILS,NIS,JMD,JPY,JOD,KZT,KES,KWD,LVL,LTL,MXN,MYR,MUR,MDL,MAD,MNT,MZN,ANG,NZD,NGN,NOK,OMR,PKR,PYG,PEN,PHP,PLN,QAR,RON,RUB,SAR,RSD,SCR,SGD,SYP,ZAR,KRW,LKR,SEK,CHF,TWD,THB,TZS,TTD,TRY,UAH,AED,UYU,VEB,VND,ZMK{% endcapture %}
+  {% assign supported_codes = settings.mlvedaACS_supportedCurrencies | split: ' ' %}
+'<option value="{{ shop.currency }}" selected="selected">{{ shop.currency }}</option>'+
+  {% for code in supported_codes %}
+    {% if code != shop.currency and codes contains code %}
+    '<option value="{{ code }}">{{ code }}</option>'+
+    {% endif %}
+  {% endfor %}
+'</select>'+
+'</a>';  
+$acs("form.search-header.search").append(mlvedasw);
+$acs(".site-header__search-toggle.btn--link").before('<div class="mlveda-mobile" >'+mlvedaswmobile+'</div>');
+$acs("#MobileNav").prepend('<li class="mobile-nav__item border-bottom mlvedaMobileSwitcher" style="display:none;">'+mlvedaswmobile1+'</li>');
+var clr1 = $acs("select#currencies").css("color");
+var clr2 = $acs("select#currencies1").css("color");
+  var clr3 = $acs("select#currencies1").css("color");
+$acs("select#currencies").css("background-image","url('data:image/svg+xml,<svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"8pxz\" height=\"5px\" viewBox=\"0 0 8 5\" enable-background=\"new 0 0 8 5\" xml:space=\"preserve\"> <path fill=\""+clr1+"\" d=\"M0,0c0,0,3.4,4.4,3.5,4.4C3.7,4.4,7.1,0,7.1,0H0z\"/></svg>')");
+$acs("select#currencies1").css("background-image","url('data:image/svg+xml,<svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"8pxz\" height=\"5px\" viewBox=\"0 0 8 5\" enable-background=\"new 0 0 8 5\" xml:space=\"preserve\"> <path fill=\""+clr2+"\" d=\"M0,0c0,0,3.4,4.4,3.5,4.4C3.7,4.4,7.1,0,7.1,0H0z\"/></svg>')");
+$acs("select#currencies2").css("background-image","url('data:image/svg+xml,<svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"8pxz\" height=\"5px\" viewBox=\"0 0 8 5\" enable-background=\"new 0 0 8 5\" xml:space=\"preserve\"> <path fill=\""+clr3+"\" d=\"M0,0c0,0,3.4,4.4,3.5,4.4C3.7,4.4,7.1,0,7.1,0H0z\"/></svg>')");
+
+</script>
+{% else %}
+<script>
+  var mlvedasw = '<div class = "pick_currency "  style="display: none; ">'+
+  '<select id="currencies" name="currencies" style="display: inline;">'+
+  {% capture codes %}USD,EUR,GBP,CAD,ARS,AUD,BBD,BDT,BSD,BHD,BRL,BOB,BND,BGN,MMK,KYD,CLP,CNY,COP,CRC,HRK,CZK,DKK,DOP,XCD,EGP,XPF,FJD,GHS,GTQ,GYD,GEL,HKD,HUF,ISK,INR,IDR,ILS,NIS,JMD,JPY,JOD,KZT,KES,KWD,LVL,LTL,MXN,MYR,MUR,MDL,MAD,MNT,MZN,ANG,NZD,NGN,NOK,OMR,PKR,PYG,PEN,PHP,PLN,QAR,RON,RUB,SAR,RSD,SCR,SGD,SYP,ZAR,KRW,LKR,SEK,CHF,TWD,THB,TZS,TTD,TRY,UAH,AED,UYU,VEB,VND,ZMK{% endcapture %}
+  {% assign supported_codes = settings.mlvedaACS_supportedCurrencies | split: ' ' %}
+'<option value="{{ shop.currency }}" selected="selected">{{ shop.currency }}</option>'+
+  {% for code in supported_codes %}
+    {% if code != shop.currency and codes contains code %}
+    '<option value="{{ code }}">{{ code }}</option>'+
+    {% endif %}
+  {% endfor %}
+'</select>'+
+'</div>';
+$acs("body").append(mlvedasw);
+var clr1 = $acs("select#currencies").css("color");
+var clr2 = $acs("select#currencies1").css("color");
+var clr3 = $acs("select#currencies1").css("color");
+$acs("select#currencies").css("background-image","url('data:image/svg+xml,<svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"8pxz\" height=\"5px\" viewBox=\"0 0 8 5\" enable-background=\"new 0 0 8 5\" xml:space=\"preserve\"> <path fill=\""+clr1+"\" d=\"M0,0c0,0,3.4,4.4,3.5,4.4C3.7,4.4,7.1,0,7.1,0H0z\"/></svg>')");
+$acs("select#currencies1").css("background-image","url('data:image/svg+xml,<svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"8pxz\" height=\"5px\" viewBox=\"0 0 8 5\" enable-background=\"new 0 0 8 5\" xml:space=\"preserve\"> <path fill=\""+clr2+"\" d=\"M0,0c0,0,3.4,4.4,3.5,4.4C3.7,4.4,7.1,0,7.1,0H0z\"/></svg>')");
+$acs("select#currencies2").css("background-image","url('data:image/svg+xml,<svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"8pxz\" height=\"5px\" viewBox=\"0 0 8 5\" enable-background=\"new 0 0 8 5\" xml:space=\"preserve\"> <path fill=\""+clr3+"\" d=\"M0,0c0,0,3.4,4.4,3.5,4.4C3.7,4.4,7.1,0,7.1,0H0z\"/></svg>')");
+
+</script>
+ <script>
+$acs('document').ready(function(){
+   $acs("body").addClass("mlvedaMobileFilter");
+   lastScroll = 0;
+$acs(window).on('scroll',function() {    
+   var scroll = $acs(window).scrollTop();
+// console.log(scroll);
+   if(lastScroll - scroll > 0) {
+       $acs("body").addClass("mlvedaMobileFilter");
+   console.log("add");
+     
+   } else {
+     //console.log("remove");
+     if($acs( "body" ).hasClass( "mlvedaMobileFilter" )){
+      $acs("body").removeClass("mlvedaMobileFilter");
+     
+     }
+     
+   }
+   lastScroll = scroll;
+});
+});
+
+var clr1 = $acs("select#currencies").css("color");
+var clr2 = $acs("select#currencies1").css("color");
+var clr3 = $acs("select#currencies2").css("color");
+$acs("select#currencies").css("background-image","url('data:image/svg+xml,<svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"8pxz\" height=\"5px\" viewBox=\"0 0 8 5\" enable-background=\"new 0 0 8 5\" xml:space=\"preserve\"> <path fill=\""+clr1+"\" d=\"M0,0c0,0,3.4,4.4,3.5,4.4C3.7,4.4,7.1,0,7.1,0H0z\"/></svg>')");
+$acs("select#currencies1").css("background-image","url('data:image/svg+xml,<svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"8pxz\" height=\"5px\" viewBox=\"0 0 8 5\" enable-background=\"new 0 0 8 5\" xml:space=\"preserve\"> <path fill=\""+clr2+"\" d=\"M0,0c0,0,3.4,4.4,3.5,4.4C3.7,4.4,7.1,0,7.1,0H0z\"/></svg>')");
+$acs("select#currencies3").css("background-image","url('data:image/svg+xml,<svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"8pxz\" height=\"5px\" viewBox=\"0 0 8 5\" enable-background=\"new 0 0 8 5\" xml:space=\"preserve\"> <path fill=\""+clr3+"\" d=\"M0,0c0,0,3.4,4.4,3.5,4.4C3.7,4.4,7.1,0,7.1,0H0z\"/></svg>')");
+
+
+</script>
+ <style>
+   .pick_currency{
+    /*  display:none !important; */
+     
+   }
+   .mlvedaMobileFilter .pick_currency{
+     /* display:block !important; */
+   }
+ </style>
+{% endif %}
+{% if settings.mlvedaACS_position == "inline" %}
+<style>
+/* logo center */
+.logo--center  .pick_currency {
+    display: inline-block;
+  position: absolute;
+    top: -11px;
+    right:45px;
+    
+}
+
+.logo--center  select#currencies1 {
+    margin-bottom: 0;
+    margin-top: 0;
+    vertical-align: middle;
+    padding-top:0px;
+	padding-bottom:0px;
+    padding-right: 15px;
+    border: 0;
+	-webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+  background-color:transparent;
+  background-position:right center;
+}
+.logo--center  select#currencies1:focus,.logo--center  select#currencies1:hover{
+outline:none;border: 0;
+}
+
+.logo--center  .pick_currency label{display:none !important;}
+
+
+@media only screen and (max-width:749px) {
+  .logo--center  .mlveda-mobile .pick_currency {
+top: 20px;
+    right: 135px;
+}
+  .logo--center  .mlveda-mobile {
+    display: inline-block !important;
+}
+}
+@media only screen and (max-width: 450px) {
+ .logo--center  .mlveda-mobile .pick_currency {
+       display: none !important;	
+}
+}
+ 
+.logo--center .search-header .pick_currency {
+  display:none !important;
+}
+/* //end logo center// */
+
+
+/* logo left */
+
+.logo--left .mlveda-mobile {
+  display:none;
+}
+.logo--left .pick_currency {
+    display: inline-block;
+  position: absolute;
+    top: 10px;
+    right:45px;
+    
+}
+.logo--left .search--focus .pick_currency {
+  z-index:-9 !important;
+}
+.logo--left select#currencies, .logo--left select#currencies1 {
+    margin-bottom: 0;
+    margin-top: 0;
+    vertical-align: middle;
+    padding-top:0px;
+	padding-bottom:0px;
+    padding-right: 15px;
+    border: 0;
+	-webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+  background-color:transparent;
+  background-position:right center;
+}
+.logo--left select#currencies:focus,.logo--left select#currencies:hover{
+outline:none;border: 0;
+}
+.logo--left select#currencies1:focus,.logo--left select#currencies1:hover{
+outline:none;border: 0;
+}
+.logo--left .search-focus .search__input {
+z-index:999 !important;
+}
+.logo--left .pick_currency label{display:none !important;}
+
+
+@media only screen and (max-width:749px) {
+.logo--left  .mlveda-mobile .pick_currency {
+top: 22px;
+right: 106px;
+}
+ .logo--left .mlveda-mobile {
+    display: inline-block !important;
+}
+}
+@media only screen and (max-width: 450px) {
+  .logo--left .mlveda-mobile .pick_currency {
+    display: none !important;
+}
+}
+ 
+/* //end logo left// */
+select#currencies2 {
+    margin-bottom: 0;
+    margin-top: 0;
+    vertical-align: middle;
+    padding-top:0px;
+	padding-bottom:0px;
+    padding-right: 15px;
+    border: 0;
+	-webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    background-color:transparent;
+    background-position:right center;
+    color:inherit;
+}
+@media only screen and (max-width: 450px) {
+	.mlvedaMobileSwitcher{
+	 display: block !important;
+	}
+	a.pick_currency.mobile-nav__link {
+    left: -15px;
+    position: relative;
+    top: 0px;
+}
+}
+{% if shop.customer_accounts_enabled %}
+   .logo--center  .mlveda-mobile .pick_currency  {
+    right:91px;
+    }
+   @media only screen and (max-width:749px) {
+   .logo--left  .mlveda-mobile .pick_currency,.logo--center  .mlveda-mobile .pick_currency  {
+    right: 140px;
+    }
+   }
+  
+   {% endif %}
+</style>
+{% endif %}
+{% endif %}

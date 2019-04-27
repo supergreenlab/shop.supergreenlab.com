@@ -1,0 +1,61 @@
+
+{% capture helpers %}
+
+  {% comment %} Exclude hidden properties from the output {% endcomment %}
+  {% if mw_GP_helpers == 'properties' %}
+    {% if first contains '_mw_grouped_product_' %}
+      {% continue %}
+    {% endif %}
+  {% endif %}
+
+  {% comment %} Replace price with discounted price {% endcomment %}
+  {% if mw_GP_helpers == 'price' %}
+	{% if item.properties._mw_grouped_product_discounted_price %}
+	  {% assign discountedPrice = item.properties._mw_grouped_product_discounted_price | replace: '.', '' %}
+	  {{ discountedPrice | money }}
+	{% else %}
+	  {{ item.price | money }}
+	{% endif %}
+  {% endif %}
+
+  {% comment %} Replace line price with discounted price multiplied by quantity {% endcomment %}
+  {% if mw_GP_helpers == 'line-price' %}
+	{% if item.properties._mw_grouped_product_discounted_price %}
+      {% assign discountedLinePrice = item.properties._mw_grouped_product_discounted_price | replace: '.', '' | times: item.quantity %}
+      {{ discountedLinePrice | money }}
+	{% else %}
+      {{ item.line_price | money }}
+	{% endif %}
+  {% endif %}
+
+  {% comment %} Add styling to disabled element {% endcomment %}
+  {% if mw_GP_helpers == 'class-disabled' %}
+    {% if item.properties._mw_grouped_product_discounted_price %}
+	  mw-gp-helper--disabled
+    {% endif %}
+  {% endif %}
+
+  {% comment %} Disable element {% endcomment %}
+  {% if mw_GP_helpers == 'attr-disabled' %}
+  	{% if item.properties._mw_grouped_product_discounted_price %}
+	  disabled="disabled" tabindex="-1"
+	{% endif %}
+  {% endif %}
+
+  {% comment %} Recalculate cart subtotal {% endcomment %}
+  {% if mw_GP_helpers == 'subtotal' %}
+  	{% assign subtotal = 0 %}
+	{% for item in cart.items %}
+	  {% if item.properties._mw_grouped_product_discounted_price %}
+        {% assign discountedPrice = item.properties._mw_grouped_product_discounted_price | replace: '.', '' %}
+		{% assign discountedPrice = item.price | minus: discountedPrice %}
+		{% assign discountedPrice = discountedPrice | times: item.quantity %}
+        {% assign subtotal = subtotal | plus: discountedPrice %}
+      {% endif %}
+	{% endfor %}
+	{{ cart.total_price | minus: subtotal | money }}
+  {% endif %}
+
+{% endcapture %}
+
+{{ helpers | strip }}

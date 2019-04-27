@@ -1,0 +1,7 @@
+production:
+  password: ${PASSWORD}
+  theme_id: ${THEME_ID}
+  store: ${STORE}
+  ignore_files:
+    - 'src/'
+    - 'node_modules/'
